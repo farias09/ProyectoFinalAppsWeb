@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace= "~{layout/plantilla ::head}">
+        <title>TICORGANIKO</title>
+    </head>
+    <body>
+        <header th:replace= "~{layout/plantilla ::header}"/>
+
+        <section th:fragment="PanelPerfil" id="main-header" class="py-0">
+            <div class="container">
+
+                <!--<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Library</li>
+                    </ol>
+                </nav>-->
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="user-info">
+                            <img src="https://i.pinimg.com/280x280_RS/42/03/a5/4203a57a78f6f1b1cc8ce5750f614656.jpg" class="rounded-circle smaller-profile-img" alt="Foto de Perfil"/>
+                            <h5 style="color: black">Nombre Completo del Usuario</h5>
+                        </div>
+                        <div id="cardCredenciales" class="card bg-primary text-white">
+                            <!-- El custom-field se usa como un identifixador personalizado para que no afecte el resto de los input "form-control" -->
+                            <div class="row">
+                                <div class="col-md-6" style="padding-top: 15px;">
+                                    <label for="inputNombreCompleto" class="form-label">Nombre Completo</label>
+                                    <input type="text" class="form-control custom-field" id="inputNombreCompleto">
+                                </div>
+
+                                <div class="col-md-6" style="padding-top: 15px;">
+                                    <label for="inputEmail" class="form-label">Correo Electrónico</label>
+                                    <input type="email" class="form-control custom-field" id="inputEmail">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6" style="padding-top: 15px;">
+                                    <label for="inputCedula" class="form-label">Número de Cedula</label>
+                                    <input type="text" class="form-control custom-field" id="inputCedula">
+                                </div>
+
+                                <div class="col-md-6" style="padding-top: 15px;">
+                                    <label for="inputTelefono" class="form-label">Número de Teléfono</label>
+                                    <input type="text" class="form-control custom-field" id="inputTelefono">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6" style="padding-top: 15px;">
+                                    <label for="inputDireccionResidencia" class="form-label">Dirección de Residencia</label>
+                                    <textarea class="form-control custom-field" id="inputDireccionResidencia" rows="5" style="height: 80px;"></textarea>
+                                </div>
+
+                                <div class="col-md-6" style="padding-top: 15px;">
+                                    <label for="inputContraseña" class="form-label" style="padding-top: 40px;">Contraseña</label>
+                                    <input type="password" class="form-control custom-field" id="inputContraseña">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6" style="padding-top: 15px;">
+                                    <label for="inputMetodoPago" class="form-label">Método de Pago</label>
+                                    <select id="inputMetodoPago" class="form-select custom-field">
+                                        <option selected>Choose...</option>
+                                        <option>...</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-13 d-flex justify-content-end align-items-center">
+                                <button id="btnEditarGuardar" type="button" class="btn btn-dark card-button">Editar Perfil</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="list-group list-group-flush overflow-auto">
+                            <div id="cardHistorial" class="card bg-primary text-white">
+                                <!-- aqui va el contenido del carHistorial -->
+                                <h4 style="text-align: center;
+                                    font-family: Arial Black, sans-serif;">Historial de Compras</h4>
+
+                                <ol class="list-group list-group-flush scroll-list" style="padding-right: 10px;
+                                    padding-left: 10px;"><!--se identifica la clase ol para que sea un scroll-list-->
+                                    <li id="identificadorLista" class="list-group-item d-flex justify-content-between align-items-start">
+                                        <div class="ms-2 me-auto">
+                                            <div class="fw-bold">Nombre del Producto</div>
+                                            Precio Total
+                                        </div>
+                                        <span class="badge bg-light rounded-pill text-black">17 Dias</span>
+                                    </li>
+                                    <li id="identificadorLista" class="list-group-item d-flex justify-content-between align-items-start">
+                                        <div class="ms-2 me-auto">
+                                            <div class="fw-bold">Nombre del Producto</div>
+                                            Precio Total
+                                        </div>
+                                        <span class="badge bg-light rounded-pill text-black">30 Dias</span>
+                                    </li>
+                                    <li id="identificadorLista" class="list-group-item d-flex justify-content-between align-items-start">
+                                        <div class="ms-2 me-auto">
+                                            <div class="fw-bold">Nombre del Producto</div>
+                                            Precio Total
+                                        </div>
+                                        <span class="badge bg-light rounded-pill text-black">3 Dias</span>
+                                    </li>
+                                    <li id="identificadorLista" class="list-group-item d-flex justify-content-between align-items-start">
+                                        <div class="ms-2 me-auto">
+                                            <div class="fw-bold">Nombre del Producto</div>
+                                            Precio Total
+                                        </div>
+                                        <span class="badge bg-light rounded-pill text-black">11 Dias</span>
+                                    </li>
+                                    <li id="identificadorLista" class="list-group-item d-flex justify-content-between align-items-start">
+                                        <div class="ms-2 me-auto">
+                                            <div class="fw-bold">Nombre del Producto</div>
+                                            Precio Total
+                                        </div>
+                                        <span class="badge bg-light rounded-pill text-black">29 Dias</span>
+                                    </li>
+                                    <li id="identificadorLista" class="list-group-item d-flex justify-content-between align-items-start">
+                                        <div class="ms-2 me-auto">
+                                            <div class="fw-bold">Nombre del Producto</div>
+                                            Precio Total
+                                        </div>
+                                        <span class="badge bg-light rounded-pill text-black">17 Dias</span>
+                                    </li>
+                                    <li id="identificadorLista" class="list-group-item d-flex justify-content-between align-items-start">
+                                        <div class="ms-2 me-auto">
+                                            <div class="fw-bold">Nombre del Producto</div>
+                                            Precio Total
+                                        </div>
+                                        <span class="badge bg-light rounded-pill text-black">7 Dias</span>
+                                    </li>
+                                    <li id="identificadorLista" class="list-group-item d-flex justify-content-between align-items-start">
+                                        <div class="ms-2 me-auto">
+                                            <div class="fw-bold">Nombre del Producto</div>
+                                            Precio Total
+                                        </div>
+                                        <span class="badge bg-light rounded-pill text-black">7 Dias</span>
+                                    </li>
+                                    <li id="identificadorLista" class="list-group-item d-flex justify-content-between align-items-start">
+                                        <div class="ms-2 me-auto">
+                                            <div class="fw-bold">Nombre del Producto</div>
+                                            Precio Total
+                                        </div>
+                                        <span class="badge bg-light rounded-pill text-black">7 Dias</span>
+                                    </li>
+                                    <li id="identificadorLista" class="list-group-item d-flex justify-content-between align-items-start">
+                                        <div class="ms-2 me-auto">
+                                            <div class="fw-bold">Nombre del Producto</div>
+                                            Precio Total
+                                        </div>
+                                        <span class="badge bg-light rounded-pill text-black">7 Dias</span>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+    </body>
+</html>

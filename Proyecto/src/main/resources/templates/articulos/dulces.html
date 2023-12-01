@@ -1,0 +1,65 @@
+<html xmlns="https://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org">
+    <head th:replace= "~{layout/plantilla ::head}">
+        <title>TICORGANIKO</title>
+        <link rel="stylesheet" type="text/css" href="estilos.css">
+    </head>
+    <body>
+        <header th:replace= "~{layout/plantilla ::header}"/>
+         <section th:fragment="PanelProducto" id="main-header" class="py-0">           
+            <div class="container" style ="margin-top: 10px;">
+                <div class="row">
+                    <div id="tarjetas-section" class="col-md-6" style ="margin-bottom: 20px;">
+                        <h1><i class="fas fa-cog"></i>[[#{plantilla.dulces}]]</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                      <div class="card">               
+                            <img class="card-img-top" src="https://i5.walmartimages.com/seo/Jumbo-Push-Pop-Assorted-Flavor-Spring-Lollipop-1-06oz_b253883d-fb42-4627-8dd2-e31454ff5e84.8e0d92e5320a5b030106f04b5bbb8d3d.jpeg" alt=""/>
+                            <div class="card-body">
+                                <p class="card-text">PushPops - $5</p>
+                            </div>
+                        </div>   
+                    </div>
+                    <div class="col-3">
+                        <div class="card">
+                            <img class="card-img-top" src="https://walmartcr.vtexassets.com/arquivos/ids/287993/Chocolate-Snickers-Original-52-7gr-1-27216.jpg?v=637808279270500000" alt=""/>
+                            <div class="card-body">
+                                <p class="card-text">Snickers - $2</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card">
+                                <img class="card-img-top" src="https://walmartcr.vtexassets.com/arquivos/ids/450935/Confite-Gallito-Morenito-Bolsa-50unidades-210Gr-1-35595.jpg?v=638312529973300000" alt=""/>
+                                <div class="card-body">
+                                    <p class="card-text">Morenitos - $1</p>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card">
+                                <img class="card-img-top" src="https://walmartcr.vtexassets.com/arquivos/ids/355592/Caramelo-Super-Barrilete-Sabor-Fruta-400gr-1-31710.jpg?v=638022551350570000" alt=""/>
+                                <div class="card-body">
+                                    <p class="card-text">Barrilete - $1</p>
+                                </div>
+                            </div>
+                    </div>                  
+                </div>  
+                <div th:each="articulo : ${articulos}">
+                    <div class="col-3">
+                        <div class="card">
+                            <a th:if="${articulo != null}" th:href="@{/articulos/detalleArticulo/{idArticulo}(idArticulo=${articulo.idArticulo})}">
+                                test test
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </section>            
+        </section>    
+                
+        <footer th:replace= "~{layout/plantilla ::footer}"/>
+    </body>
+</html>

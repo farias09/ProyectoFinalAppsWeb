@@ -1,0 +1,64 @@
+<html xmlns="https://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org">
+    <head th:replace= "~{layout/plantilla ::head}">
+        <title>TICORGANIKO</title>
+        <link rel="stylesheet" type="text/css" href="estilos.css">
+    </head>
+    <body>
+        <header th:replace= "~{layout/plantilla ::header}"/>
+        
+        <section th:fragment="PanelProducto" id="main-header" class="py-0">           
+            <div class="container" style ="margin-top: 10px;">
+                <div class="row">
+                    <div id="tarjetas-section" class="col-md-6" style ="margin-bottom: 20px;">
+                        <h1><i class="fas fa-cog"></i>[[#{plantilla.frutas}]]</h1>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-3">
+                      <div class="card">
+                            <img class="card-img-top" src="https://walmartcr.vtexassets.com/arquivos/ids/314892/Fresa-Bandeja-1-26218.jpg?v=637891223346000000" alt=""/>
+                            <div class="card-body">
+                                <p class="card-text">Fresas - $10</p>
+                            </div>
+                        </div>   
+                    </div>
+                
+                    <div class="col-3">
+                      <div class="card">
+                            <img class="card-img-top" src="https://walmartcr.vtexassets.com/arquivos/ids/248357/Uva-Globo-Kilo-Marketside-1-68316.jpg?v=637710432764170000" alt=""/>
+                            <div class="card-body">
+                                <p class="card-text">Uvas - $11</p>
+                            </div>
+                        </div>   
+                    </div>
+                
+                    <div class="col-3">
+                      <div class="card">
+                            <img class="card-img-top" src="https://walmartcr.vtexassets.com/arquivos/ids/221778/Naranja-Importada-1-5-Kilo-1-60146.jpg?v=637626935998570000" alt=""/>
+                            <div class="card-body">
+                                <p class="card-text">Naranjas - $12</p>
+                            </div>
+                        </div> 
+                    </div>     
+                
+                    <div class="col-3">
+                      <div class="card">
+                            <img class="card-img-top" src="https://i5.walmartimages.com.mx/gr/images/product-images/img_large/00000000004045L.jpg?odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt=""/>
+                            <div class="card-body">
+                                <p class="card-text">Cerezas - $1</p>
+                            </div>
+                      </div>   
+                    </div>
+                </div>
+                    </div>  
+                </div>    
+        </section>            
+        </section>    
+
+
+                
+        <footer th:replace= "~{layout/plantilla ::footer}"/>
+    </body>
+</html>

@@ -1,0 +1,64 @@
+<html xmlns="https://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org">
+    <head th:replace= "~{layout/plantilla ::head}">
+        <title>TICORGANIKO</title>
+        <link rel="stylesheet" type="text/css" href="estilos.css">
+    </head>
+    <body>
+        <header th:replace= "~{layout/plantilla ::header}"/>
+        
+        <section th:fragment="PanelProducto" id="main-header" class="py-0">           
+            <div class="container" style ="margin-top: 10px;">
+                <div class="row">
+                    <div id="tarjetas-section" class="col-md-6" style ="margin-bottom: 20px;">
+                        <h1><i class="fas fa-cog"></i>[[#{plantilla.bebidas}]]</h1>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-3">
+                      <div class="card">
+                            <img class="card-img-top" src="https://walmartcr.vtexassets.com/arquivos/ids/463817/Gaseosa-Coca-Cola-regular-3-L-1-26374.jpg?v=638328300002700000" alt=""/>
+                            <div class="card-body">
+                                <p class="card-text">CocaCola - $1</p>
+                            </div>
+                        </div>   
+                    </div>
+                
+                    <div class="col-3">
+                      <div class="card">
+                            <img class="card-img-top" src="https://walmartcr.vtexassets.com/arquivos/ids/463807/Gaseosa-Fanta-kolita-regular-600-ml-1-26343.jpg?v=638328299959800000" alt=""/>
+                            <div class="card-body">
+                                <p class="card-text">Fanta Kolita - $1.5</p>
+                            </div>
+                        </div>   
+                    </div>
+                
+                    <div class="col-3">
+                      <div class="card">
+                            <img class="card-img-top" src="https://walmartcr.vtexassets.com/arquivos/ids/353783/Refresco-Tropical-T-Frio-Lim-n-3000ml-1-55580.jpg?v=638018230229930000" alt=""/>
+                            <div class="card-body">
+                                <p class="card-text">Te frio - $2</p>
+                            </div>
+                        </div> 
+                    </div>     
+                
+                    <div class="col-3">
+                      <div class="card">
+                            <img class="card-img-top" src="https://walmartcr.vtexassets.com/arquivos/ids/379645/Bebida-Gasificada-Pepsi-Cola-Pet-600ml-1-26361.jpg?v=638101823058770000" alt=""/>
+                            <div class="card-body">
+                                <p class="card-text">Pepsi - $1</p>
+                            </div>
+                      </div>   
+                    </div>
+                </div>
+                    </div>  
+                </div>    
+        </section>            
+        </section>    
+
+
+                
+        <footer th:replace= "~{layout/plantilla ::footer}"/>
+    </body>
+</html>
