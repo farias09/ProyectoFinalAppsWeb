@@ -10,6 +10,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 /*//////////Plantilla//////////*/
 
+.fa-house {
+    margin-right: 6px;
+}
+
+.fa-arrow-right-to-bracket {
+    margin-right: 8px;
+}
+
 .form-inline {
     width: 30%; /* Ancho del nav */
 }
@@ -143,6 +151,53 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     overflow-y: auto;
 }
 
-/* estilos.css */
+
+/*//////////Panel Promociones//////////*/
 
 
+#carouselExampleControls img {
+    max-height: 400px; /* Ajusta el tamaño del img */
+    margin: auto; /* Centra la imagen */
+}
+
+
+
+/*//////////Login//////////*/
+#loginButtom {
+    
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: 70px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+#socialButtoms {
+    
+    display: flex;
+    margin-top: 170px;
+    padding: 0px 30px;
+    font-size: 1.1rem;
+    justify-content: space-evenly;
+}
+
+
+#resgistro {
+    margin-top: 80px;
+}
+
+#cardLogin{
+    
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-bottom: 40px;
+    padding-top: 30px;
+
+}
+
+#contenedorLogin{
+    
+    padding-top: 40px; 
+        
+    
+}

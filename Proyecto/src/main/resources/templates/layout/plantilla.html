@@ -1,49 +1,86 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" 
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
     <head th:fragment="head">
         <title>TICORGANIKO</title>
         <meta charset="UTF-8" />
         <link th:href="@{/css/estilos.css}" rel="stylesheet" type="text/css" />
-        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
-        <link th:href="@{/webjars/fontawesome/css/all.css}" rel="stylesheet" />
-        <script th:src="@{/funcion/metodoPerfil.js}"></script>
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+        <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet" />
         <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
         <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+        <script th:src="@{/funcion/metodoPerfil.js}"></script>
     </head>
+
     <body>
         <header th:fragment="header" class="header">
             <nav class="navbar navbar-expand-sm navbar-dark py-2 bg-primary p-0">
                 <div class="container">
-                    <a th:href="@{/}" class="navbar-brand" style="font-size: 25px">[[#{aplicacion.titulo}]]</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+                    <a th:href="@{/}" class="navbar-brand" style="font-size: 25px"><i class="fa-solid fa-house"></i>[[#{aplicacion.titulo}]]</a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
                     </button>
+
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                        <!-- lista de elementos de navegacion -->
+                        <!-- Lista de elementos de navegación -->
                         <ul class="navbar-nav">
                             <li class="nav-item px-2"><a class="nav-link" th:href="@{/producto/productsPage}">[[#{plantilla.catalogo}]]</a></li>
                             <li class="nav-item px-2"><a class="nav-link" th:href="@{/promocion/promocionesPage}">[[#{plantilla.promociones}]]</a></li>
                             <li class="nav-item px-2"><a class="nav-link" th:href="@{/empresa/empresaPage}">[[#{plantilla.contactanos}]]</a></li>
                         </ul>
-                        <!-- toogle para la busqueda en el nav (boostrap)-->
+
+                        <!-- Toggle para la búsqueda en el nav -->
                         <form class="form-inline">
                             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
                         </form>
 
                         <ul class="navbar-nav">
-                            <li class="nav-item px-2"><a class="nav-link" th:href="@{/perfil/usuarioPanel}">[[#{plantilla.cuenta}]]</a></li>
-                            <li class="nav-item px-2"><a class="nav-link" th:href="@{/usuarios/listado}">[[#{plantilla.carrito}]]</a></li>
-                        </ul>
-                        <ul class="navbar-nav">
-                            <li class="nav-item px-2"><a class="nav-link" th:href="@{/(lang=es)}">ES</a></li>
-                            <li class="nav-item px-2"><a class="nav-link" th:href="@{/(lang=en)}">EN</a></li>
+                            <li class="nav-item dropdown" sec:authorize="hasRole('ROLE_USER')">
+                                <a class="nav-link dropdown-toggle"
+                                   data-bs-toggle="dropdown" 
+                                   href="#" 
+                                   role="button"
+                                   aria-expanded="false" sec:authentication="name"></a>
+                                <ul class="dropdown-menu dropdown-menu-dark" sec:authorize="hasRole('ROLE_USER')">
+                                    <li><a class="dropdown-item" th:href="@{/perfil/perfilPage}" style="font-size: 15px;">Ver Perfil</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <!-- Agregar el formulario para cerrar sesión -->
+                                    <form method="post" th:action="@{/logout}">
+                                        <li><button type="submit" class="dropdown-item" style="font-size: 15px;">Cerrar Sesion</button></li>
+                                    </form>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item px-2" sec:authorize="!isAuthenticated()">
+                                <a class="nav-link" th:href="@{/login}">
+                                    <i class="fa-solid fa-arrow-right-to-bracket"></i>[[#{plantilla.cuenta}]]
+                                </a>
+                            </li>
+                            <li class="nav-item px-2">
+                                <a class="nav-link" th:href="@{/usuarios/listado}">[[#{plantilla.carrito}]]</a>
+                            </li>
+                            
+                            <li class="nav-item dropdown" sec:authorize="hasRole('ROLE_ADMIN')">
+                                <a class="nav-link dropdown-toggle"
+                                   data-bs-toggle="dropdown" 
+                                   href="#" 
+                                   role="button"
+                                   aria-expanded="false">Administrar</a>
+                                <ul class="dropdown-menu dropdown-menu-dark" sec:authorize="hasRole('ROLE_ADMIN')">
+                                    <li><a class="dropdown-item" th:href="@{/perfil/listado}" style="font-size: 15px;">[[#{plantilla.clientes}]]</a></li>
+                                </ul>
+                            </li> 
                         </ul>
                     </div>
                 </div>
             </nav>
         </header>
+
+
         <!-- footter -->
         <footer th:fragment="footer" class="footer">
             <div class="container">
