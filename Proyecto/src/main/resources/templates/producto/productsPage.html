@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html xmlns="https://www.w3.org/1999/xhtml"
       xmlns:th="https://www.thymeleaf.org">
     <head th:replace= "~{layout/plantilla ::head}">
@@ -17,36 +16,44 @@
                 </div>
                 <div class="row">
                     <div class="col-3">
-                      <div class="card">
-                            <img class="card-img-top" src="https://www.superaki.mx/cdn/shop/collections/DULCES.png?v=1634682356" alt="" width="300" height="150"/>
-                            <div class="card-body">
-                                <p class="card-text">Dulces</p>
-                            </div>
-                        </div>   
+                        <div class="card">
+                            <a th:href="@{/articulos/dulces}" class="card-link">
+                                <img class="card-img-top" src="https://www.superaki.mx/cdn/shop/collections/DULCES.png?v=1634682356" alt="" width="300" height="150"/>
+                                <div class="card-body">
+                                    <p class="card-text">Dulces</p>
+                                </div>
+                            </a>
+                        </div>    
                     </div>
                     <div class="col-3">
                         <div class="card">
-                            <img class="card-img-top" src="https://blog.iniciativasempresariales.com/wp-content/uploads/2021/11/Caracteristicas_Tratamiento_Agua_elaboracion_bebidas_alcohol.jpg" alt="" width="300" height="150"/>
-                            <div class="card-body">
-                                <p class="card-text">Bebidas</p>
-                            </div>
+                            <a th:href="@{/articulos/bebidas}" class="card-link">
+                                <img class="card-img-top" src="https://blog.iniciativasempresariales.com/wp-content/uploads/2021/11/Caracteristicas_Tratamiento_Agua_elaboracion_bebidas_alcohol.jpg" alt="" width="300" height="150"/>
+                                <div class="card-body">
+                                    <p class="card-text">Bebidas</p>
+                                </div>
+                            </a>
                         </div>
                     </div>
                     <div class="col-3">
                         <div class="card">
+                            <a th:href="@{/articulos/cereales}" class="card-link">
                                 <img class="card-img-top" src="https://cloudfront-us-east-1.images.arcpublishing.com/gruponacion/6EONPOUOJNHWXPLT7OTC7UP2I4.jpg" alt="" width="300" height="150"/>
                                 <div class="card-body">
                                     <p class="card-text">Cereales</p>
                                 </div>
-                            </div>
+                            </a>
+                        </div>
                     </div>
                     <div class="col-3">
                         <div class="card">
+                            <a th:href="@{/articulos/frutas}" class="card-link">
                                 <img class="card-img-top" src="https://www.loreki.com/wp-content/uploads/2014/09/frutas.propiedades.jpg" alt="" width="300" height="150"/>
                                 <div class="card-body">
                                     <p class="card-text">Frutas</p>
                                 </div>
-                            </div>
+                            </a>    
+                        </div>
                     </div>                  
                 </div>
                 <div class="row" style ="margin-top: 10px;">
@@ -119,10 +126,7 @@
                 </div>
             </div>    
         </section>            
-        </section>    
-                
-
-                
+        </section>       
         <footer th:replace= "~{layout/plantilla ::footer}"/>
     </body>
 </html>
