@@ -15,6 +15,5 @@ public interface ClienteDao extends JpaRepository<Cliente, Long> {
 
     Cliente findByUsernameOrCorreo(String username, String correo);
    
-    boolean existsByUsernameOrCorreo(String username, String correo);
 }
 

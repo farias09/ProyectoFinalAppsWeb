@@ -41,15 +41,16 @@ public class ProjectConfig implements WebMvcConfigurer {
                 .requestMatchers("/", "/index", "/css/**", "/img/**", "/layout/plantilla/**",
                         "/login", "/js/**", "/webjars/**", "/empresa/empresaPage", "/funcion/metodoPerfil.js",
                         "/promocion/promocionesPage", "/producto/productsPage", "/articulos/dulces", "/articulos/bebidas",
-                        "/articulos/cereales", "/articulos/frutas")
+                        "/articulos/cereales", "/articulos/frutas", "/registro/nuevo**", "/perfil/registro/**")
                 .permitAll()
                 .requestMatchers(
-                        "/perfil/listado", "/perfil/modificar/**", "/perfil/eliminar/**",
-                        "/perfil/nuevo/**", "/perfil/guardar/**", "/perfil/modificar/**",
-                        "/reportes/**"
+                        "/perfil/listado/**", "/perfil/eliminar/**","/reportes/**",
+                        "/perfil/nuevo/**"
                 ).hasAnyRole("ADMIN", "USER")
                 .requestMatchers(
-                        "/perfil/perfilPage","/perfil/paneles")
+                        "/perfil/perfilPage", "/perfil/paneles/**", "/perfil/guardar/**", "/perfil/actualizar-imagen/**",
+                        "/perfil/modificar/**"
+                )
                 .hasRole("USER")
                 )
                 .formLogin((form) -> form

@@ -16,6 +16,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.transaction.annotation.Transactional;
 import com.proyecto.dawp.service.ClienteDetailsService;
 
+
+//La clase CliesnteDetailsServiceImpl es para el Login
 @Service("userDetailsService")
 public class ClienteDetailsServiceImpl implements ClienteDetailsService, UserDetailsService {
 
@@ -28,24 +30,24 @@ public class ClienteDetailsServiceImpl implements ClienteDetailsService, UserDet
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        //Se busca el cliente que tiene el username pasado por parámetro...
+        //Se busca el cliente que tiene el username pasado por parametro
         Cliente cliente = clienteDao.findByUsername(username);
 
-        //Se valida si se recuperó un cliente / sino lanza un error
+        //Este valida si se recuperó un cliente / sino lanza un error
         if (cliente == null) {
             throw new UsernameNotFoundException(username);
         }
 
-        //Si estamos acá es porque si se recuperó un cliente...
+        //Si continua aca es porque si se recupero un cliente
         session.removeAttribute("clienteImagen");
         session.setAttribute("clienteImagen", cliente.getRutaImagen());
 
-        //Se van a recuperar los roles del cliente y se crean los roles ya como seguridad de Spring
+        //Se van a recuperar los roles del cliente y se crean los roles ya como seguridad de spring
         var roles = new ArrayList<GrantedAuthority>();
         for (Rol rol : cliente.getRoles()) {
             roles.add(new SimpleGrantedAuthority(rol.getNombre()));
         }
-        //Se retorna un User (de tipo UserDetails)
+        //Se retorna un User de tipo UserDetails
         return new User(cliente.getUsername(), cliente.getPassword(), roles);
     }
 }

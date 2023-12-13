@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
 package com.proyecto.dawp.service;
 
 import com.proyecto.dawp.domain.Cliente;
@@ -24,12 +20,6 @@ public interface ClienteService {
 
     // Se obtiene un Cliente, a partir del username y el password de un cliente
     public Cliente getClientePorUsernameYPassword(String username, String password);
-
-    // Se obtiene un Cliente, a partir del username y el password de un cliente
-    public Cliente getClientePorUsernameOCorreo(String username, String correo);
-
-    // Se valida si existe un Cliente considerando el username
-    public boolean existeClientePorUsernameOCorreo(String username, String correo);
 
     // Se inserta un nuevo cliente si el id del cliente esta vacío
     // Se actualiza un cliente si el id del cliente NO esta vacío
