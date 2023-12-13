@@ -39,7 +39,6 @@ public class Cliente implements Serializable {
     private boolean activo;
 
     @OneToMany
-    @JoinColumn(name="id_cliente")
+    @JoinColumn(name = "id_cliente")
     List<Rol> roles;
-
 }

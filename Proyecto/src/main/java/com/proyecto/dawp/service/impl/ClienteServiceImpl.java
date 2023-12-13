@@ -10,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
-
 /**
  *
  * @author ferva
@@ -20,11 +18,13 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class ClienteServiceImpl implements ClienteService {
     
-       @Autowired
+
+    @Autowired
     private ClienteDao clienteDao;
+
     @Autowired
     private RolDao rolDao;
-
+    
     @Override
     @Transactional(readOnly = true)
     public List<Cliente> getClientes() {
@@ -49,23 +49,12 @@ public class ClienteServiceImpl implements ClienteService {
         return clienteDao.findByUsernameAndPassword(username, password);
     }
 
-    @Override
-    @Transactional(readOnly = true)
-    public Cliente getClientePorUsernameOCorreo(String username, String correo) {
-        return clienteDao.findByUsernameOrCorreo(username, correo);
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public boolean existeClientePorUsernameOCorreo(String username, String correo) {
-        return clienteDao.existsByUsernameOrCorreo(username, correo);
-    }
 
     @Override
     @Transactional
     public void save(Cliente cliente, boolean crearRolUser) {
-        cliente=clienteDao.save(cliente);
-        if (crearRolUser) {  //Si se está creando el cliente, se crea el rol por defecto "USER"
+        cliente = clienteDao.save(cliente);
+        if (crearRolUser) {
             Rol rol = new Rol();
             rol.setNombre("ROLE_USER");
             rol.setIdCliente(cliente.getIdCliente());
@@ -78,5 +67,5 @@ public class ClienteServiceImpl implements ClienteService {
     public void delete(Cliente cliente) {
         clienteDao.delete(cliente);
     }
-    
+
 }

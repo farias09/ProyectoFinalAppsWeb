@@ -14,6 +14,7 @@ flush privileges;
 CREATE TABLE ticorganiko.productos (
   id_producto INT NOT NULL AUTO_INCREMENT,
   descripcion VARCHAR(100) NOT NULL,
+  nombre VARCHAR(30) NOT NULL,
   codigo VARCHAR(10),
   precio DECIMAL(10, 2) NOT NULL,
   cantidad INT NOT NULL,
@@ -27,11 +28,11 @@ CREATE TABLE ticorganiko.productos (
 CREATE TABLE ticorganiko.cliente (
   id_cliente INT NOT NULL AUTO_INCREMENT,
   nombre VARCHAR(30),
-  correo VARCHAR(50),
+  correo VARCHAR(30),
   numero_telefono INT NOT NULL,
   direccion VARCHAR(50),
   cedula INT NOT NULL,
-  username VARCHAR(30),
+  username VARCHAR(15),
   password VARCHAR(512),
   ruta_imagen VARCHAR(1024),
   activo BOOLEAN,
@@ -39,18 +40,29 @@ CREATE TABLE ticorganiko.cliente (
   ENGINE = InnoDB
   DEFAULT CHARACTER SET = utf8mb4;
 
+-- Crear la tabla de facturas
+CREATE TABLE ticorganiko.facturas (
+  id_factura INT NOT NULL AUTO_INCREMENT,
+  id_cliente INT NOT NULL,
+  fecha DATE,
+  total DECIMAL(10, 2),
+  estado INT,
+  PRIMARY KEY (id_factura),
+  FOREIGN KEY fk_factura_cliente (id_cliente) REFERENCES cliente(id_cliente)
+) ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
 
 -- Crear la tabla de historial de compras de clientes
 CREATE TABLE ticorganiko.historial_cliente (
-    id_compra INT NOT NULL AUTO_INCREMENT,
-    id_cliente INT NOT NULL,
-    id_factura INT NOT NULL,
-    fecha_compra DATE,
-    monto_total DECIMAL(10, 2),
-    productos_comprados TEXT,
-    PRIMARY KEY (id_compra),
-    FOREIGN KEY (id_cliente) REFERENCES ticorganiko.clientes(id_cliente)
-) ENGINE = InnoDB;
+  id_compra INT NOT NULL AUTO_INCREMENT,
+  id_factura INT NOT NULL,
+  fecha_compra DATE,
+  monto_total DECIMAL(10, 2),
+  productos_comprados TEXT,
+  PRIMARY KEY (id_compra),
+  FOREIGN KEY (id_factura) REFERENCES ticorganiko.facturas(id_factura))
+ENGINE = InnoDB
+CHARACTER SET = utf8mb4;
 
 -- Crear la tabla de promociones
 CREATE TABLE ticorganiko.promociones (
@@ -86,7 +98,7 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
 
 INSERT INTO ticorganiko.cliente (id_cliente, nombre, correo, numero_telefono, direccion, cedula, username, password, ruta_imagen, activo) VALUES
-(1, 'Juan Carlos Morales Silva', 'Juan1234@gmail.com', 123456789, 'Dirección del Admin', 184720483, 'juan12', '$2a$10$P1.w58XvnaYQUQgZUCk4aO/RTRl8EValluCqB3S2VMLTbRt.tlre.', 'https://i.pinimg.com/280x280_RS/42/03/a5/4203a57a78f6f1b1cc8ce5750f614656.jpg', true),
+(1, 'Juan Carlos Morales Silva', 'Juan1234@gmail.com', 123456789, 'Dirección del Admin', 184720483, 'juan12', '$2a$10$P1.w58XvnaYQUQgZUCk4aO/RTRl8EValluCqB3S2VMLTbRt.tlre.', 'https://th.bing.com/th/id/OIP.GyMB5gJgjcN3koFUW6TRPwHaHa?w=500&h=500&rs=1&pid=ImgDetMain', true),
 (2, 'Ana María Silva Flores', 'Ana5322@gmail.com', 12345678, 'Dirección del Admin', 123456789, 'ana_maria53', '$2a$10$P1.w58XvnaYQUQgZUCk4aO/RTRl8EValluCqB3S2VM', 'https://i.pinimg.com/280x280_RS/42/03/a5/4203a57a78f6f1b1cc8ce5750f614656.jpg', true),
 (3, 'Isabella Ruiz Vargas', 'Isabella1732@gmail.com', 123456789, 'Dirección del Admin', 123456789, 'isabella17', '$2a$10$P1.w58XvnaYQUQgZUCk4aO/RTRl8EValluCqB3S2VMLTbRt.tlre.', 'https://i.pinimg.com/280x280_RS/42/03/a5/4203a57a78f6f1b1cc8ce5750f614656.jpg', true),
 (4, 'Adrian García López', 'Adrian9472@gmail.com', 123456789, 'Dirección del Admin', 123456789, 'adrian94', '$2a$10$P1.w58XvnaYQUQgZUCk4aO/RTRl8EValluCqB3S2VMLTbRt.tlre.', 'https://i.pinimg.com/280x280_RS/42/03/a5/4203a57a78f6f1b1cc8ce5750f614656.jpg', true),
@@ -118,6 +130,9 @@ INSERT INTO ticorganiko.rol (id_rol, nombre, id_cliente) VALUES
 (18,'ROLE_USER',13),
 (19,'ROLE_USER',14),
 (20,'ROLE_USER',15);
+
+SELECT * FROM ticorganiko.cliente ;
+SELECT * FROM ticorganiko.rol ;
 
 /*create table ticorganiko.ventas (
   id_venta INT NOT NULL AUTO_INCREMENT,

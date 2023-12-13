@@ -35,7 +35,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     font-size: 18px;
 }
 
-.footer {
+#footerPlantilla {
     background-color: #007BFF;
     color: #fff;
     padding: 10px 0; /* Espaciado del pie de página */
@@ -70,6 +70,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }
 
 /*//////////Panel Usuario//////////*/
+
+.user-info {
+    position: relative;
+}
+
+#imgEditar {
+    position: absolute;
+    top: 0;
+    left: 55%;
+    margin-top: 3%;
+    transform: translateX(-50%);
+    font-size: 15px;
+}
+
+#blah {
+    display: block;
+}
 
 .input-group-narrow {
     max-width: 440px; /* Establece el ancho máximo a tu preferencia */
@@ -108,7 +125,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     margin: 0px;
     border: 2px solid #000;
     border-radius: 25px;
-    margin-top: 30px;
+    margin-top: 44px;
     max-width: 815px;
 }
 
@@ -164,18 +181,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 /*//////////Login//////////*/
 #loginButtom {
-    
+
     margin-top: 20px;
     margin-left: auto;
-    margin-right: 70px;
+    margin-right: 90px;
     padding-left: 50px;
     padding-right: 50px;
 }
 
 #socialButtoms {
-    
+
     display: flex;
-    margin-top: 170px;
+    margin-top: 110px;
     padding: 0px 30px;
     font-size: 1.1rem;
     justify-content: space-evenly;
@@ -183,21 +200,42 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 
 #resgistro {
-    margin-top: 80px;
+    margin-top: 70px;
 }
 
 #cardLogin{
-    
+
     padding-left: 35px;
     padding-right: 35px;
-    padding-bottom: 40px;
-    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-top: 20px;
+
+}
+
+#cardRegistro{
+
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 30px;
+    padding-top: 20px;
 
 }
 
 #contenedorLogin{
-    
-    padding-top: 40px; 
-        
-    
+    padding-top: 40px;
+}
+
+
+
+
+/*//////////PanelRegistro//////////*/
+
+#buttomBack{
+    margin-right: 330px;
+}
+
+#footerRegistro {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 0; /* Espaciado del pie de página */
 }
