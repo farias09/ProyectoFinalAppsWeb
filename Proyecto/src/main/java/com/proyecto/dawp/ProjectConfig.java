@@ -32,16 +32,20 @@ public class ProjectConfig implements WebMvcConfigurer {
         registry.addViewController("/login").setViewName("login");
         registry.addViewController("/registro/nuevo").setViewName("/registro/nuevo");
     }
-
+    
+    
     //solo permite leer una ruta por usuario
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
+                
                 .authorizeHttpRequests((requests) -> requests
                 .requestMatchers("/", "/index", "/css/**", "/img/**", "/layout/plantilla/**",
                         "/login", "/js/**", "/webjars/**", "/empresa/empresaPage", "/funcion/metodoPerfil.js",
                         "/promocion/promocionesPage", "/producto/productsPage", "/articulos/dulces", "/articulos/bebidas",
-                        "/articulos/cereales", "/articulos/frutas", "/registro/nuevo**", "/perfil/registro/**")
+                        "/articulos/cereales", "/articulos/frutas", "/articulos/carnes", "/articulos/vegetales","/articulos/chocolates", 
+                        "/articulos/embutidos","/articulos/congelados","/articulos/panaderia","/articulos/lacteos","/articulos/licores","/registro/nuevo**", "/perfil/registro/**",
+                        "/articulos/detalleArticulo/**", "/carrito/carrito")
                 .permitAll()
                 .requestMatchers(
                         "/perfil/listado/**", "/perfil/eliminar/**","/reportes/**",

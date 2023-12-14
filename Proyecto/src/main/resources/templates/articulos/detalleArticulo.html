@@ -1,15 +1,35 @@
-<!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html xmlns="https://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org">
+    <head th:replace= "~{layout/plantilla ::head}">
+        <title>TICORGANIKO</title>
+        <link rel="stylesheet" type="text/css" href="estilos.css">
     </head>
     <body>
-        <div>TODO write content</div>
+        <header th:replace="~{layout/plantilla ::header}" />
+        <div style="margin-top: 40px; margin-left: 100px;">
+            <h2>Detalle del Articulo</h2>
+        </div>
+        
+        <section th:fragment="PanelProducto" id="main-header" class="py-0">           
+            <div class="container" style="margin-top: 10px;">
+                <div class="row">
+                    <div class="col-md-6" style="margin-bottom: 20px;">
+                        <img th:src="@{${articulo.rutaImagen}}" alt="Imagen del Artículo" style="width: 100%; height: auto;">
+                    </div>
+                    <div class="col-md-6" style="margin-bottom: 20px;margin-top: 150px;">
+                        <div class="card">
+                            <div class="card-body">
+                                <h1 th:text="${articulo.descripcion}"></h1>
+                                <p>Precio: $<span th:text="${articulo.precio}"></span></p>
+                                <button type="button" class="btn btn-primary">Agregar al Carrito</button>                      
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </section>          
+
+        <footer th:replace="~{layout/plantilla ::footer}" />
     </body>
+
 </html>

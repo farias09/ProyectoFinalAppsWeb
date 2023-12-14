@@ -8,7 +8,7 @@ import com.proyecto.dawp.domain.Articulo;
 import java.util.List;
 
 public interface ArticuloService {
-     // Obtener un listado de articuloes
+     // Obtener un listado de articulos
     public List<Articulo> getArticulos();
 
     // Obtener un Articulo por ID

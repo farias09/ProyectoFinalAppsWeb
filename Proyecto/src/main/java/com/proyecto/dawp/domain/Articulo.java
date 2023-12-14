@@ -29,6 +29,7 @@ public class Articulo implements Serializable {
     private int cantidad;
     private int promocion;
     private boolean activo;
+    private String rutaImagen;
 
     public Articulo() {
     }

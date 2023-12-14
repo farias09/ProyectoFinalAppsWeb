@@ -24,7 +24,7 @@ public class DetalleArticuloControlador {
     @Autowired
     private ArticuloService articuloService;
 
-    @GetMapping("detalle/{idArticulo}")
+    @GetMapping("detalleArticulo/{idArticulo}")
     public String verDetalleArticulo(@PathVariable Long idArticulo, Model model) {
         Articulo articulo = articuloService.getArticulo(idArticulo);
         model.addAttribute("articulo", articulo);
